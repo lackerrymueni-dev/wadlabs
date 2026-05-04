@@ -1,126 +1,240 @@
-<!DOCTYPE html>
-<html>
+<!--document type declaration(version of html)-->
+<!doctype html>
+<!--the root element-->
+<html lang="en">
+<!--head-->
+
 <head>
-    <title>My Cirriculum Vitae</title>
+    <!--meta elements-->
+    <meta charset="utf-8">
+    <meta name="Ëdwin" content="BBIT">
+    <meta name="description" content="GTA 6 is...">
+    <meta name="keywords" content="GTA 6,Grand Theft Auto VI,GTA VI">
+    <!--5. title-->
+    <title>GTA VI</title>
+    <!--other elements that go here -->
+    <!--styles, scripts,favicon -->
+    <style>
+        /* an element selector
+        /* example h1, we are selecting all haeding one's on this page
+        /*<h1> h1, <div> div, main, p, footer*/
+            h1{
+                /*a declaration*/
+                color:blue;
+                font: size 48px;
+            }
+            /*a class selector(starts with a dot)*/
+            /* class can have many elements*/
+            /*all the elements with a class of .section-heading*/
+            /*one or many elements*/
+            /*bbit*/
+            .section-heading{
+                color:green;
+
+            }
+            /*an id selector(starts with a #)*/
+            /*only one element*/
+            /*211200*/
+            #about{
+                background-color: aliceblue;
+
+            }
+    </style>
+    <!--an external styles-->
+    <link rel="stylesheet" href="css/style.css">
+
 </head>
+<!--6. the body(content goes here)-->
 
 <body>
 
-<!-- MAIN CONTAINER -->
-<div style="width: 80%; margin: auto; font-family: Arial, sans-serif;">
-
-    <!-- HEADER -->
-    <header style="display:flex;
-    align-items: center;gap:15px;">
-    <!-- PROFILE IMAGE -->
-            <img src="me.jpg.jpg" alt="My photo" width="120" style="border-radius: 50;">
-
-        <h1>Lackerry Mueni</h1>
-        <h3>IT PROJECT MANAGER</h3>
-        <p>
-           I am a hardworking and motivated student with strong knowlegde on IT basics and also working
-           working on an ongoing project on produvt cycles.Iam also really passionate about team work and
-           group leading for various projects.
+    <header style="background-color: lightcoral;">
+       
+        <h1>Grand Theft Auto VI</h1>
+        <p> <!--paragraph text-->
+            The nect generation open-world crime game by
+            <b>Rocstar Games</b>
         </p>
-        <hr>
     </header>
 
-    <!-- TWO COLUMN LAYOUT -->
-    <div style="display: flex;">
+    Grand Theft Auto VI
 
-        <!-- LEFT SIDE -->
-        <section style="width: 65%; padding-right: 20px;">
+    The next generation open-world crime game by Rockstar Games.
 
-                        
+    <!-- Add navigation semantic tag -->
+    <!-- Convert items into an unordered list -->
+    <!-- Wrap each item in a link(hyperlinks) -->
+    <!-- Add id links pointing to sections -->
 
-            <!-- WORK EXPERIENCE -->
-            <h2>Work Experience</h2>
-
-            <h3>IT PROJECT MANAGER</h3>
-            <p><strong>SAFARICOM</strong> | 2029- Present</p>
-            <ul>
-                <li>Guiding a team project on product cyles:
-                    <b>predictive and adaptive cycles.</b>
+    <nav>
+        <!--unorderd list -->
+        <ul>
+            <li>
+                <!--internal(another section on the same page)
+                external
+                -different paage on the same website
+                --different page on another website
+            -->
+                <a href="#about">About GTA 6</a>
+            </li> <!--list item-->
+            <li>
+                <a href="#feature"></a>
                 </li>
-                <li>Worked with a team on small poject</li>
-                <li>Improved negotiation and emphasies on team work among various staff 
-                    while interning
+                <a href="#Characters">Characters</a> 
+                <li> <!--list item-->
+                    <a href="https://www.rockstargames.com/games/VI" 
+                    target="_blank">
+                        Official Page
+                    </a>
+
                 </li>
-            </ul>
+            
+            
+            <li>Official Page</li> <!--list item-->
+        </ul>
+    </nav>
 
-            <h3>Junior Project Manager</h3>
-            <p><strong>ABSA bank</strong> | 2029-2030</p>
-            <ul>
-                <li>Worked on IT applications</li>
-                <li>Improved performance</li>
-                <li>Collaborated with teams</li>
-            </ul>
+    About GTA 6
 
-            <!-- COURSES -->
-            <h2>Courses & Certifications</h2>
-            <ul>
-                <li>Web Development Course – Udemy</li>
-                <li>IT Fundamentals Course – Coursera</li>
-                <li>Advanced OOP – freeCodeCamp</li>
-            </ul>
+    Features
+
+    Characters
+
+    <!-- Add main semantic tag -->
+    <main>
+        <section id="about" name="about">
+            <h2 class="section-heading">About the Game</h2>
+            <p>
+             <b>GTA 6</b> is expected to take players back to <i>Vice City</i> with amassive open world,
+             new charaters,and improved gameplay
+             mechanics 
+            </p>
 
         </section>
 
-        <!-- RIGHT SIDE -->
-        <aside style="width: 35%; border-left: 1px solid #ccc; padding-left: 20px;">
+        <section id="features">
+            <h2 class="section-heading">Expected Features</h2>
 
-            <!-- CONTACT -->
-            <h2>Contact</h2>
-            <p>Email: muenilackerry@gmail.com</p>
-            <p>Phone:07-68-361-291</p>
-            <p>Location:Nairobi,Madaraka</p>
-            <p>
-                GitHub:
-                <a href="https://github.com/lackerrymueni-dev">github.com/yourname</a>
-            </p>
-
-            <hr>
-
-            <!-- SKILLS -->
-            <h2>Skills</h2>
-            <ul>
-                <li>IT BASICS</li>
-                <li>ComputerNetwork</li>
-                <li>Java </li>
-                <li>Statistics</li>
-                <li>SQL</li>
+            <h4>Gameplay Features</h4>
+            <ul> <!--unorderd list-->
+                <li>Open world exploration</li>
+                <li>Dynamic weather system</li>
+                <li>Multiple playable characters</li>
+                <li>Improved AI</li>
             </ul>
 
-            <hr>
 
-            <!-- EDUCATION -->
-            <h2>Education</h2>
-            <p><strong>BSc in BUsiness Information Technology</strong></p>
-            <p>Stratmore University</p>
-            <p>2025 - Ongoing</p>
+            <h4>New Improvements</h4>
 
-            <hr>
+            <ol> <!--ordered list-->
+                <li> Better graphics</li>
+                <li> Larger map</li>
+                <li>Realistic NPC behavior</li>
+                <li>Enhanced vehicles</li>
 
-            <!-- INTERESTS -->
-            <h2>Interests</h2>
-            <ul>
-                <li>Machine Learning</li>
-                <li>Problem solving</li>
-                <li>team retreats</li>
-                <li>Robotics</li>
-            </ul>
+            </ol>
+        </section>
 
-        </aside>
+        <section id="characters">
+            <h2 class="section-heading">Main Characters</h2>
+            <article>
+                <h5>Lucia</h5>
+                <p>
+                    Lucia is one of the 
+                    <b>first female protagonist</b>in GTA history,
+                    She is known for her bold personality
+                    and criminal
+                    background.
+                </p>
+            </article>
+            <article>
+              <h5>Jason</h5>  
+              <p>
+                Jason partners with Lucia in a story
+                inspired by
+                <i>Bonnie and Clyde</i>style adventures
+              </p>
+            </article>
+    
+        </section>
 
-    </div>
+        <section id="logo">
+            <h2 class="section-heading">Game Preview</h2>
+            <img src="https://www.rockstargames.com/VI/_next/image?url=%2FVI%2F_next%2Fstatic%2Fmedia%2FJason_and_Lucia_01_With_Logos_landscape.8596f77a.jpg&w=3840&q=75" 
+            alt="GTA 6 Logo image" width="50%">
+           
+        </section>
+    </main>
 
-    <!-- FOOTER -->
+
+    <!-- Add section with id="features" -->
+    <!-- Add subsection headings -->
+    <!-- Convert first group into unordered list -->
+    <!-- Convert second group into ordered list -->
+
+    Expected Features
+
+    Gameplay Features
+
+    Open world exploration
+
+    Dynamic weather system
+
+    Multiple playable characters
+
+    Improved AI
+
+
+    New Improvements
+
+    Better graphics
+
+    Larger map
+
+    Realistic NPC behavior
+
+    Enhanced vehicles
+
+
+    <!-- Add section with id="characters" -->
+    <!-- Use article tag for each character -->
+    <!-- Add headings for names -->
+    <!-- Add paragraphs -->
+    <!-- Make "first female protagonists" bold -->
+    <!-- Make "Bonnie and Clyde" italic -->
+
+    Main Characters
+
+    Lucia
+
+    Lucia is one of the first female protagonists in GTA history. She is known for her bold personality and criminal
+    background.
+
+
+    Jason
+
+    Jason partners with Lucia in a story inspired by Bonnie and Clyde-style adventures.
+
+    <!-- Add section for image -->
+    <!-- Add image tag below -->
+    <!-- Use src attribute -->
+    <!-- Use alt attribute -->
+    <!-- Use width attribute -->
+
+    Game Preview
+
+    GTA 6 Logo image
+
+    <!-- Close main semantic tag -->
+
+    <!-- Add footer semantic tag -->
     <footer>
         <hr>
-        <p style="text-align: center;">© 2026 Your Name</p>
+        <p>© 2026 GTA 6 Fan Page | Created for HTML Learning</p>
     </footer>
 
-</div>
-
+    
 </body>
+
+
 </html>
