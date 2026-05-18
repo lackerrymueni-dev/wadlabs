@@ -1,21 +1,515 @@
-#features{
-    background-color: beige;
+/* ============================================================
+   GTA VI FAN PAGE COLOR SYSTEM
+   Inspired by the official GTA VI visual style
+   ============================================================ 
+  
+   CSS Colors
+    - named e.g. blue, green (limited)
+    - hex - use hexadecimal values (0-9A-F) e.g. #RRGGBB #FFFFFF(white), #000000(black) - (Most common in web design)
+    - rgb - use 0-255 e.g. rgb(255,255,255) -white, rgb(0,0,0) - black
+    - rgba same as rgb but includes a transparency value between 0-1 (0 = invisible 1 = fully visible) (last item) e.g rgba(25,55,66,0.5) 
+*/
+
+/*
+:root targets the <html> element.
+It is the highest-level element on the page.
+Variables defined here become available everywhere in the stylesheet.
+*/
+
+:root {
+
+    /* ===============================
+       BACKGROUND COLORS
+       =============================== */
+
+    /* Deep night blue */
+    --col-bg-deep: #08131f;
+
+    /* Main dark surface */
+    --col-bg-mid: #102030;
+
+    /* Transparent glass effect */
+    --col-bg-light: rgba(16, 32, 48, 0.82);
+
+    /* ===============================
+       PRIMARY ACCENT COLORS
+       =============================== */
+
+    /* Neon cyan */
+    --col-cyan: #00d5d8;
+
+    /* Bright electric cyan */
+    --col-cyan-light: #4ff6ea;
+
+    /* GTA VI pink/coral */
+    --col-coral: #ff4f87;
+
+    /* Soft neon pink */
+    --col-pink-soft: #ff9bb3;
+
+    /* Sunset orange */
+    --col-sunset: #ff9f43;
+
+    /* Warm amber */
+    --col-amber: #ffc46b;
+
+    /* ===============================
+       TEXT COLORS
+       =============================== */
+
+    /* Main light text */
+    --col-cream: #fff8f2;
+
+    /* Secondary muted text */
+    --col-muted: #7ea0b3;
 }
-body,header,h1,section{
-    border-style: dotted;
-    border-color: turquoise;
-    border-width: 2px;
+
+/*
+example usage
+using the var keyword*/
+/*
+Different font categories
+-------------------------
+| Category   | Description                 | Example         |
+| ---------- | --------------------------- | --------------- |
+| serif      | Fonts with decorative edges | Times New Roman |
+| sans-serif | Clean modern fonts          | Arial           |
+| monospace  | Equal-width characters      | Courier New     |
+| cursive    | Handwriting-style fonts     | Pacifico        |
+| fantasy    | Decorative/stylized fonts   | Papyrus         |
+Font Properties
+---------------
+| Property      | Purpose                     |
+| ------------- | --------------------------- |
+| `font-family` | Changes the font            |
+| `font-size`   | Controls text size          |
+| `font-weight` | Makes text bold/light       |
+| `font-style`  | Adds italics/normal styling |
+Using custom fonts
+- google fonts
+example
+body {
+    font-family: 'Poppins', Arial, sans-serif;
 }
-h1{
-    /*long hand*/
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding-left: 10px;
-    padding-right: 10px;
+What Happens Here?
+Browser tries to load Poppins
+If it fails → uses Arial
+If Arial is unavailable → uses any available sans-serif font
+This ensures the webpage always remains readable and visually consistent.
+*/
+
+/*
+1. choose font combination
+Suggested font combination (you can change this)
+Young Serif + Instrument Sans
+OR
+Cinzel + Fauna One
+2. Import
+@import url('https://fonts.googleapis.com/css2......................');
+or
+link
+3. Apply to the specific element
+font-family property
+*/
+
+body{
+ font-family: serif; 
+}
+body{
+    font-family:'Instrument Sans',sans-serif;
+    font-size: 16px;
+    font-weight: 400;/*normal*/
+    background-color: var(--col-cream);
     /*shorthand*/
+    margin: 0;
+    /*long-hand version*/
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-right: 0;
+    margin-left: 0;
+
+    line-height: 1.7;
+}
+/*group selector*/
+h1,h2{
+    font-family: 'Young Serif',serif;
+}
+/*
+========================================================
+                    CSS BOX MODEL (CoPaBoMa)
+========================================================
+        +----------------------------------+
+        |              MARGIN              |
+        |  (Space outside the element)     |
+        |                                  |
+        |   +--------------------------+   |
+        |   |         BORDER           |   |
+        |   |  (Edge around element)   |   |
+        |   |                          |   |
+        |   |   +------------------+   |   |
+        |   |   |     PADDING      |   |   |
+        |   |   | (Inner spacing)  |   |   |
+        |   |   |                  |   |   |
+        |   |   |    CONTENT       |   |   |
+        |   |   | (Text/Image/etc) |   |   |
+        |   |   |                  |   |   |
+        |   |   +------------------+   |   |
+        |   |                          |   |
+        |   +--------------------------+   |
+        |                                  |
+        +----------------------------------+
+========================================================
+BOX MODEL PARTS
+========================================================
+1. CONTENT
+   - The actual text, image, or element content
+2. PADDING
+   - Space between content and border
+3. BORDER
+   - Surrounds the padding and content
+4. MARGIN
+   - Space outside the border
+   - Separates elements from each other
+========================================================
+========================================================
+                    CSS UNITS
+========================================================
+CSS units define the size of elements, text, spacing,
+and layouts.
+There are TWO main categories:
+1. ABSOLUTE UNITS
+2. RELATIVE UNITS
+--------------------------------------------------------
+1. ABSOLUTE UNITS
+--------------------------------------------------------
+Absolute units have FIXED sizes.
+They do NOT change based on screen size or parent size.
+Common Absolute Units:
+px   = pixels
+cm   = centimeters
+mm   = millimeters
+in   = inches
+pt   = points
+Example:
+body {
+    font-size: 16px;
+}
+Advantages:
+- Precise control
+- Easy to understand
+Disadvantages:
+- Less responsive on different screen sizes
+--------------------------------------------------------
+2. RELATIVE UNITS
+--------------------------------------------------------
+Relative units change based on another value
+(screen size, parent size, root font size, etc.)
+Common Relative Units:
+%    = percentage
+em   = relative to parent font size
+rem  = relative to root font size
+vw   = viewport width
+vh   = viewport height
+Example:
+body {
+    font-size: 1.2rem;
+}
+Advantages:
+- Better for responsive design
+- Adapts to different devices
+Disadvantages:
+- Can be harder to calculate
+--------------------------------------------------------
+COMMON EXAMPLES
+--------------------------------------------------------
+width: 50%;
+font-size: 2rem;
+height: 100vh;
+width: 80vw;
+========================================================
+                    CSS SELECTORS
+========================================================
+Selectors choose which HTML elements CSS styles apply to.
+--------------------------------------------------------
+1. DESCENDANT SELECTOR (ALL LEVELS)
+--------------------------------------------------------
+A descendant selector targets ALL matching elements
+inside another element, no matter the nesting level.
+Syntax:
+parent child
+Example:
+div p {
+    color: blue;
+}
+Meaning:
+- Select ALL <p> elements inside <div>
+- Includes deeply nested paragraphs
+HTML Example:
+<div>
+    <p>Selected</p>
+    <section>
+        <p>Also Selected</p>
+    </section>
+</div>
+--------------------------------------------------------
+2. DIRECT CHILD SELECTOR (LEVEL 1 ONLY)
+--------------------------------------------------------
+The direct child selector targets ONLY immediate children.
+Syntax:
+parent > child
+Example:
+div > p {
+    color: red;
+}
+Meaning:
+- Select ONLY <p> elements directly inside <div>
+- Nested paragraphs are NOT selected
+HTML Example:
+<div>
+    <p>Selected</p>
+    <section>
+        <p>NOT Selected</p>
+    </section>
+</div>
+--------------------------------------------------------
+VISUAL DIFFERENCE
+--------------------------------------------------------
+DESCENDANT SELECTOR
+div p
+<div>
+    <p>YES</p>
+    <section>
+        <p>YES</p>
+    </section>
+</div>
+DIRECT CHILD SELECTOR
+div > p
+<div>
+    <p>YES</p>
+    <section>
+        <p>NO</p>
+    </section>
+</div>
+Text properties (line-height, text-align, letter-spacing, text-transform etc..)
+*/
+header{
+    padding-top: 5px;
+    
+    padding-bottom: 20px;
+   text-align: center;
+
+   border-bottom-width: 2px;
+   border-bottom-style: solid;
+   border-bottom-color: #ff4f87;
+
+}
+/*various ways of selecting a heading(h1) given our html
+h1 (element)
+#mainheading(id)
+headins(class)
+desendant selector(all elements within another element)
+*/
+header h1{
+ 
+    font-size: 3.5em;
+    letter-spacing: 4px;
+    text-transform:uppercase;
+    color:var(--col-coral);
+
+    margin-left:8px;
+    margin-bottom: 0;
+    margin-top: 0;
+    margin-right: 0;
+}
+/*
+direct child selector
+*/
+header b{
+    color:var(--col-sunset);
+    letter-spacing: 2px;
+    font-size: 0.95em;
+
+}
+
+nav{
+    margin-top: 10px;
+    
+}
+nav ul{
+    list-style:none;
+    padding: 0;
+    margin: 0;
+    /*change the display to flex*/
+    display: flex;
+    justify-content:center;
+    gap: 10px;
+   
+}
+nav ul li a{
+    color: var(--col-bg-deep);
+    text-decoration: none;
+    font-size: 1.1em;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+
+    padding: 8px 18px;
+    border: 1px ;
+    border-style:solid ;
+    border-color:(--col-cyan-light);
+    border-radius: 8px;
+}
+nav ul li a:hover{
+    background-color: var(--col-cyan);
+    border-color: var(--col-pink-soft);
+}
+main{
+    max-width: 960px;
+    
+    margin-right: auto;
+    margin-left: auto;
+    margin-top:20px ;
+    margin-bottom: 20px;
+}
+section{
+    margin-bottom: 30px;
+    padding: 32px;
+    background-color: var(--col-bg-light);
+    border-radius: 5px;
+    border-left-style: solid;
+    border-left-color: var(--col-coral);
+    border-left-width: 2px;
+
+/*transitions*/
+transition-property:border-color;
+transition-duration: 2s;
+transition-timing-function: ease;
+}
+section:hover{
+border-left-color: var(--col-cyan);
+}
+p, h4{
+    color: var(--col-cream);
+}
+h5{
+    color: var(--col-amber);
+}
+main b{
+    color: var(--col-coral);
+}
+main i{
+    color: var(--col-cyan);
+}
+h2{
+    color: var(--col-sunset);
+    border-bottom: 1px solid var(--col-amber);
+}
+/*lists*/
+main ul,main ol{
+    padding-left: 24px;
+    color: var(--col-cream);
+}
+main li{
+    margin-left: 4px;
+}
+/*pseudo class selector*/
+section li:first-child{
+    color:var(--col-pink-soft);
+    font-weight: bold;
+}
+/*pseudo element selector(part of an element)*/
+main ul li::marker{
+    color: var(--col-cyan);
+}
+main ol li::marker{
+    color: var(--col-coral);
+}
+img{
+    max-width: 100%;
+    border-radius: 10px;
+
+}
+footer p{
+    color: var(--col-muted);
+
+}
+hr{
+    border: 1px solid var(--col-cyan);
+    
+}
+/*characters-grid*/
+.characters-grid{
+    display: grid;
+    grid-template-columns:1fr 1fr ;
+    gap: 10px;
+}
+article h4 {
+    border-bottom:2px solid var(--col-coral) ;
+}
+
+main{
+    padding-left:10px ;
+    padding-right: 10px;
+}
+/* ============================================================
+   RESPONSIVE BREAKPOINT RANGES
+   ------------------------------------------------------------
+   Small Mobile  :   0px   → 480px
+   Large Mobile  : 481px   → 600px
+   Tablet        : 601px   → 768px
+   Small Laptop  : 769px   → 1023px
+   Desktop       : 1024px  → 1279px
+   Wide Screens  : 1280px and above
+ 
+   Media queries allow CSS styles to change depending
+   on the screen size or device characteristics.
+   ============================================================ */
+
+
+/* Small Mobile Devices */
+@media screen and (max-width: 600px) {
+    .characters-grid{
+        grid-template-columns: 1fr;
+    }
+    body{
+    background-color: black;
+    }
+}
+
+
+/* Large Mobile Devices */
+@media screen and (min-width: 481px) and (max-width: 600px) {
+    body{
+        background-color: brown;
+    }
+   
+}
+
+
+/* Tablets */
+@media screen and (min-width: 601px) and (max-width: 768px) {
+body{
+    background-color: purple;
+}
+}
+/* Small Laptops */
+@media screen and (min-width: 769px) and (max-width: 1023px) {
+body{background-color: pink;}
+}
+/* Desktop Screens */
+@media screen and (min-width: 1024px) and (max-width: 1279px) {
+body{background-color: plum;}
+}
+/* Wide Screens */
+@media screen and (min-width: 1280px) {
+    body{
+        background-color: gray;
+    }
+}
+nav ul{
+    flex-direction: column;
     padding: 10px;
-    /*Trouble*/
-    padding: 5px 10px 13px 50px;
-    /*this applies to allthe four margins*/
-    margin: 5px;
+}
+nav ul li a{
+    display:block;
+    
 }
