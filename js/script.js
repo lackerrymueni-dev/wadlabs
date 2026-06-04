@@ -12,6 +12,7 @@ let age=19;
 var Course="BCOM";
 const university="Daystar";
  var day="6th";
+ 
 if(true){
 let time="11:30";
 var day="4th";
