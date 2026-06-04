@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Grid Demo
+        </title>
+        <meta name="viesport" content="width=device-width,initial-scale">
+        <style>
+       body{
+        margin: 0;
+        height: 100vh;
+        font-size:24px ;
+       }
+       .container{
+        display: grid;
+        grid-template-columns: 100px 1fr 100px;
+        grid-template-rows: 80px 1fr 40px;
+        grid-template-areas:
+        "header header header" 
+        "l-aside main r-aside"
+        "footer footer footer";
+        gap: 8px;
+        padding: 8px;
+       }
+       header{
+        grid-area: header;
+        background: pink;
+       }
+       #left-aside{
+        grid-area: l-aside;
+        background: mediumorchid;
+       }
+       main{
+        grid-area: main;
+        background: blueviolet;
+        height: 79vh;
+       }
+       #right-aside{
+        grid-area: r-aside;
+        background:purple ;
+       }
+       footer{
+        grid-area: footer;
+        background: plum;
+       }
+        </style>
+    </head>
+    <body>
+        <!--grid container-->
+    <div class="container">
+        <header>Header</header>
+        <aside id="left-aside">
+         Left Aside
+        </aside>
+        <main>Main</main>
+        <aside id="right-aside">Right Aside</aside>
+        <footer>Footer</footer>
+    </div>
+    </body>
+</html>
