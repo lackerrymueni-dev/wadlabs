@@ -54,3 +54,109 @@ console.log(add(4,2))
 const multiply=(x,y) => x * y;
 
 console.log(multiply(2,5));
+
+/**Javascript arrays(related) */
+
+const scores=[45,56,67,67,78];
+
+//Access array_name [index]
+//78
+console.log( scores[4]);
+//67
+console.log( scores[2]);
+//45
+console.log( scores[0]);
+//56
+console.log( scores[1]);
+
+let student_names=["omondi","wafula","kiprotich","nyambane","topian"];
+//print out kiprotich on console window
+console.log(student_names[2]);
+
+let governors=[
+    [47,"Johnson Sakaja"],
+    [1,"Sherrif Nasar"],
+    [21,"Irungu Kang'ata"]
+];
+//print out the governor of county 1 is Sherrif Nasar
+console.log("The governor of county number",governors[1][0],"is",governors[1][1]);
+//array inside an array 
+
+// map(performs operation on each element)
+let doubled=scores.map(x=>x*2);//multiple each score by 2
+console.log(doubled);
+
+//properties
+//The class has j students(student_names)
+console.log("The class has",student_names.length,"students");
+
+//Kenya has b governors
+console.log("Kenya has",governors.length,"governors");
+
+//for in
+for(let index in scores){
+    console.log(scores[index]);
+}
+// for of
+for(let score of scores){
+    console.log(score);
+}
+
+//forEach
+scores.forEach(function(score){
+console.log("score:",score);
+});
+
+const student={
+    name:"Alice",
+    age:20,
+    passed:true,
+    grade:'A',
+    "admission number":18330,
+    course:"BBIT",
+    group:"2A",
+    university:"Strathmore",
+    attendance :20,
+    addAttendance:function(){
+        this.attendance+=1
+    }
+};
+
+//accesing items
+//student_name
+console.log("My name is",
+    student.name,"admission number",
+    student["admission number"],
+   
+);
+
+
+//a method in the object
+student.addAttendance();//add attendance by 1
+console.log(student.attendance);//21
+
+//array of objects
+let bbit_2b_students=[
+    {adm:223251,name:"Blessing"},
+    {adm:192977,name:"Ryan"},
+     {adm:222024,name:"Ambrose"},
+      {adm:220941,name:"Neema"}
+
+];
+// calling one student
+console.log(bbit_2b_students[1].name);
+
+//print out the names of all the stidents in 2b using a loop
+bbit_2b_students.forEach(function(student){
+    console.log(student.name)
+});
+
+
+//getting keys of an object as an array
+console.log(student.keys())
+
+//getting the values of an object as an array
+//console.log(student.values())
+
+//getting both keys and values of an object as an array
+//console.log(student.entries())
