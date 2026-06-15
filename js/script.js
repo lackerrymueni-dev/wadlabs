@@ -160,3 +160,29 @@ console.log(Object.values(student));
 
 //getting both keys and values of an object as an array
 console.log(Object.entries(student));
+
+/* DOM -Document Object Model*/
+console.log(document);
+console.log(document);
+
+//Elements on our page (variables)
+const heading=document.querySelector("#mainHeading");
+console.log(heading);
+const previewImage=document.querySelector("img");
+console.log(previewImage);
+const aboutSection=document.getElementById('about');
+console.log(aboutSection);
+//querySelector- returns only one element the first matching element
+
+//all sections
+const allSections=document.querySelectorAll('section');
+console.log(allSections);
+const allNavLinks=document.querySelectorAll("nav a");
+console.log(allNavLinks);
+
+//getting an element
+let aboutParagraph=document.querySelector('#about p');
+
+//change it text
+aboutParagraph.textContent="This text was changed";
+aboutParagraph.sytle.color="red";
