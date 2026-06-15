@@ -151,12 +151,12 @@ bbit_2b_students.forEach(function(student){
     console.log(student.name)
 });
 
-
+//@TODO:Showing looping of objects
 //getting keys of an object as an array
-console.log(student.keys())
+console.log(Object.keys(student));
 
 //getting the values of an object as an array
-//console.log(student.values())
+console.log(Object.values(student));
 
 //getting both keys and values of an object as an array
-//console.log(student.entries())
+console.log(Object.entries(student));
