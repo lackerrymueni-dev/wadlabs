@@ -168,8 +168,7 @@ console.log(document);
 //Elements on our page (variables)
 const heading=document.querySelector("#mainHeading");
 console.log(heading);
-const previewImage=document.querySelector("img");
-console.log(previewImage);
+
 const aboutSection=document.getElementById('about');
 console.log(aboutSection);
 //querySelector- returns only one element the first matching element
@@ -185,4 +184,41 @@ let aboutParagraph=document.querySelector('#about p');
 
 //change it text
 aboutParagraph.textContent="This text was changed";
-aboutParagraph.sytle.color="red";
+aboutParagraph.style.color="red";
+
+//setting/setter-updating the page from js
+const previewImage=document.querySelector("img");
+console.log(previewImage);
+//via DOM
+previewImage.setAttribute("title","New title of Image");
+previewImage.setAttribute("alt","New alternate text for Image");
+console.log(previewImage.alt);
+console.log(previewImage.title);
+
+//EventHandling-Events(user events-click, key events,scroll)
+//get the element of interest-button with an id of changeTextBtn
+let changeTextBtn=document.querySelector("#changeTextBtn");
+let demoText=document.querySelector("#demoText");
+
+// we are handling the click event for  the button with an id changrTextBtn
+changeTextBtn.addEventListener("click",function(event){
+    console.log("Someone clicked me!");
+    demoText.textContent="I have been changed when you clicked";
+     demoText.style.color="orange";
+      demoText.style.fontSize="16px";
+});
+//use case 2
+let highlightSectionsBtn=document.querySelector("#highlightSectionsBtn");
+ highlightSectionsBtn.addEventListener("click",function(event){
+    //one
+    document.querySelector("#about").classList.toggle("section-highlight");
+    //two
+        document.querySelectorAll("#section").forEach(function(section){
+        section.classList.toggle("section-highlight");
+        });
+});
+//get the textbox with nameInput
+ document.querySelector("#nameInput").addEventListener("input",function(event){
+document.querySelector("#nameOutput").textContent=
+"Hello" + document.querySelector("#nameInput").value +"!";
+});
