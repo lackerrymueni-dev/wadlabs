@@ -257,16 +257,20 @@ let keyOutput=document.querySelector("#keyOutput");
 //we've attached it to the entire page not just one element
 document.addEventListener("keydown",function(event){
     //updating the paragraph
-    keyOutputParagraph.textContent="You pressed:"+event.key;
+    if(keyOutput){
+    keyOutput.textContent="You pressed:"+event.key;}
 });
 
 //case-todo lisy,wishlist
 let wishListInput=document.querySelector("#wishlistInput");
-let wishListButton=document.querySelector("#wishlistform button");
+let wishListButton=document.querySelector("#wishlistButton");
 //<ul></ul>
 let wishListItems=document.querySelector("#wishlistItems");
 //submit btn
-wishListButton.addEventListener("Click",function(event){
+ wishListButton = document.querySelector("#submitBtn");
+//error handler
+if(wishListButton){
+wishListButton.addEventListener("click",function(event){
     //prevents form submission
 event.preventDefault();
 //read whatever is in the wishlist
@@ -281,10 +285,93 @@ if(wishListInputValue!=""){
     let button=document.createElement("button");
     button.textContent="Delete";
     li.textContent=wishListInputValue;
+
+    //we are going to add an event listener with the new dynamic element
+    button.addEventListener("click",event => {
+        li.remove();
+    });
+    
+    li.appendChild(button);
     //we append the list to the ul
     wishListItems.appendChild(li);
+  
 
     //finally we clear what the user typed in the input field
     wishListInput.value="";
 }
 });
+}
+//case 6b - removing items from the wish list
+let deleteButtons = document.querySelectorAll("#wishlistItems button");
+console.log(deleteButtons);
+
+//iterate a.k.a loop through the buttons
+deleteButtons.forEach(button => {
+    button.addEventListener("click", event => {
+        //console.log("delete button clicked");
+
+        //in css
+        //how do we get the first list item in an unordered list
+        //given that the ul has has an id of #wishlistItems
+
+        //#wishlistItems li
+        //#wishlistItems>li
+        //#wishlistItems li:first
+
+        // querySelector - returns the first matching element
+        // let first_li = document.querySelector("#wishlistItems li"); //first one
+        // first_li.remove();
+        // for one or for many
+        // <li> <button>Delete</button> </li>
+        //@TODO , how do you use parent, parentElement
+
+        button.closest("li").remove();
+        // button.parentElement.remove();
+    });
+});
+//case 7-submit form/validation
+//show what someone filled in the the form
+let submitButton=document.querySelector("#feedbackForm button");
+let feedbackForm=document.querySelector("#feedbackForm");
+let feedbackOutput=document.querySelector("#feedbackOutput");//div
+
+feedbackForm.addEventListener("submit",event=>{
+    //prevent the form from being submitted normally
+    event.preventDefault();
+   // console.log("submit button clicked");
+    
+   //get the values filled in the form
+  const name=document.querySelector("#fanName");//name
+  const email=document.querySelector("#fanEmail");//email
+  const message=document.querySelector("#fanMessage");//message,textarea
+
+  feedbackOutput.innerHTML=
+  "<strong>Fan Feedback Submitted</strong><br>"+
+  "<p>Name:" +name.value+"</p>"+
+   "<p>Email:" +email.value+"</p>"+
+    "<p>Name:" +message.value+"</p>";
+
+    //clear the form fields
+    name.value="";
+    email.value="";
+    message.value="";
+
+  //add success styles to the output div
+    feedbackOutput.classList.add('success-text');
+});   
+// forgotten
+let resetBtn = document.querySelector("#resetBtn");
+resetBtn.addEventListener("click", event => {
+    //undo the changed text
+    demoText.textContent =
+     "Clicked the button to modify this text using JavaScript.";
+     demoText.style.color = "white";
+     demoText.style.fontSize = "16px"; //has no effect
+
+     //undo the highlight of the sections
+     //toggle will remove if present or add if absent
+        document.querySelectorAll("section").forEach(function (section) {
+            // section.classList.toggle("section-highlight");
+            section.classList.toggle("section-highlight");
+        });
+    });
