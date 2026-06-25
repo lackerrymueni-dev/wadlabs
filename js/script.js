@@ -374,4 +374,4 @@ resetBtn.addEventListener("click", event => {
             // section.classList.toggle("section-highlight");
             section.classList.toggle("section-highlight");
         });
-    });
+    })
